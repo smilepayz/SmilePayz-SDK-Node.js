@@ -38,7 +38,7 @@ const postData = JSON.stringify({
 
 //options  you have changge hostname, timestamp, clientKey
 const options = {
-  hostname: 'sandbox-gateway.smilepay.id',
+  hostname: 'sandbox-gateway.thesmilepay.com',
   port: 443,
   path: '/v1.0/access-token/b2b',
   method: 'POST',
