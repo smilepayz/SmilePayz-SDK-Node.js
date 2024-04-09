@@ -1,1 +1,1 @@
-# TheSmilePay-SDK-Node.js
+# SmilePayz-SDK-Node.js
