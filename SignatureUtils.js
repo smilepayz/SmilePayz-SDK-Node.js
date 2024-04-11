@@ -17,7 +17,7 @@ const byte2Hex = hash.toString('hex');
 const lowerCase = byte2Hex.toLowerCase();
 const accessToken = "gp9HjjEj813Y9JGoqwOeOPWbnt4CUpvIJbU1mMU4a11MNDZ7Sg5u9a";
 const timestamp = "2020-12-17T10:55:00+07:00";
-const signData = "POST:/v1.0/transaction/pay-in:" +accessToken  +  lowerCase + timestamp;
+const signData = "POST:/v1.0/transaction/pay-in:" + accessToken + ":" +  lowerCase + ":" +  timestamp;
 const secret = "1c10756efe3494660442cdc096d402c154bae5d32a4c31fec087b38bc6ad5a29";
 const signature = hmacSHA512(signData, secret);
 console.log(signature);
