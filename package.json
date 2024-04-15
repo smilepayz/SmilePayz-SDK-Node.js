@@ -1,0 +1,17 @@
+{
+  "name": "thesmilepay-sdk-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "step1_generate_rsa_keys.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "data-fns": "^1.1.0",
+    "moment": "^2.30.1",
+    "uuid": "^9.0.1"
+  }
+}
