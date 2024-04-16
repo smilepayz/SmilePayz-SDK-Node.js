@@ -9,6 +9,8 @@ const { v4: uuidv4 } = require('uuid');
 console.log('=====> step2 : Create Access Token');
 
 const merchantSecret = '1c10756efe3494660442cdc096d402c154bae5d32a4c31fec087b38bc6ad5a29';
+const sandboxBaseUrl = 'sandbox-gateway.smilepayz.com';
+const prodBaseUrl = 'gateway.smilepayz.com';
 
 async function payInRequest(clientKey,minify){
     const timestamp = moment().format('YYYY-MM-DDTHH:mm:ssZ');
@@ -24,7 +26,7 @@ async function payInRequest(clientKey,minify){
     console.log(`Response Body: ${token}`)
     //options  you have changge hostname, timestamp, clientKey
     const options = {
-        hostname: 'sandbox-gateway.thesmilepay.com',
+        hostname: sandboxBaseUrl,
         port: 443,
         path: '/v1.0/transaction/pay-in',
         method: 'POST',
