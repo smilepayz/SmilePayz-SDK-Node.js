@@ -56,7 +56,11 @@ function accessTokenSignature(clientKey,timestamp, privateKeyStr) {
 
     const stringToSign = `${clientKey}` + '|' + `${timestamp}`;
 
-//********** begin signature ***************
+    return sha256Signature(stringToSign, privateKeyStr);
+}
+
+function sha256RsaSignature(stringToSign, privateKeyStr) {
+    //********** begin signature ***************
     const privateKeyData = Buffer.from(`${privateKeyStr}`, 'base64');
     const privateKey = crypto.createPrivateKey({
         key: privateKeyData,
@@ -72,5 +76,5 @@ function accessTokenSignature(clientKey,timestamp, privateKeyStr) {
     return signatureBase64;
 }
 
-module.exports = {hmacSHA512,accessTokenSignature};
+module.exports = {hmacSHA512,accessTokenSignature,sha256RsaSignature};
 
