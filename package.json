@@ -2,7 +2,7 @@
   "name": "thesmilepay-sdk-node",
   "version": "1.0.0",
   "description": "",
-  "main": "step1_generate_rsa_keys.js",
+  "main": "v1/step1_generate_rsa_keys.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

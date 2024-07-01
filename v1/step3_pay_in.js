@@ -1,7 +1,7 @@
 const crypto = require('crypto');
 const https = require('https');
 const getAccessToken = require('./step2_accessToken')
-const mySignature =require('./SignatureUtils')
+const mySignature =require('../SignatureUtils')
 const moment = require("moment/moment");
 const { v4: uuidv4 } = require('uuid');
 

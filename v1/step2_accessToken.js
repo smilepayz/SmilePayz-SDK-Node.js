@@ -1,7 +1,7 @@
 const crypto = require('crypto');
 const https = require('https');
 const moment = require("moment")
-const mySignature = require('./SignatureUtils')
+const mySignature = require('../SignatureUtils')
 
 console.log('=====> step2 : Create Access Token');
 

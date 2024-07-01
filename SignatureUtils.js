@@ -3,12 +3,13 @@ const crypto = require('crypto');
 
 // this is generate signature method when hit pay in/ pay out api
 function hmacSHA512(signData, secret) {
-
     const hmac = crypto.createHmac('sha512', secret);
-
     hmac.update(signData);
-
     return hmac.digest('base64');
+}
+
+function generateRandomString(length) {
+    return crypto.randomBytes(length).toString('hex');
 }
 
 const minify = "{\"paymentMethod\":\"QRPAY\",\"payer\":{\"name\":\"payer name\",\"phone\":\"123456789\"},\"receiver\":{\"name\":\"receiver name\",\"phone\":\"123456789\"},\"orderNo\":\"T_1712742988888\",\"purpose\":\"Purpose For Transaction from Java SDK\",\"productDetail\":\"Product details\",\"itemDetailList\":[{\"name\":\"mac A1\",\"quantity\":1,\"price\":100}],\"billingAddress\":{\"address\":\"Jl. Pluit Karang Ayu 1 No.B1 Pluit\",\"city\":\"jakarta\",\"postalCode\":\"14450\",\"phone\":\"018922990\",\"countryCode\":\"THAILAND\"},\"shippingAddress\":{\"address\":\"Jl. Pluit Karang Ayu 1 No.B1 Pluit\",\"city\":\"jakarta\",\"postalCode\":\"14450\",\"phone\":\"018922990\",\"countryCode\":\"THAILAND\"},\"money\":{\"currency\":\"THB\",\"amount\":100},\"merchant\":{\"merchantId\":\"sandbox-20011\"},\"area\":11}";
@@ -56,7 +57,11 @@ function accessTokenSignature(clientKey,timestamp, privateKeyStr) {
 
     const stringToSign = `${clientKey}` + '|' + `${timestamp}`;
 
-//********** begin signature ***************
+    return sha256Signature(stringToSign, privateKeyStr);
+}
+
+function sha256RsaSignature(stringToSign, privateKeyStr) {
+    //********** begin signature ***************
     const privateKeyData = Buffer.from(`${privateKeyStr}`, 'base64');
     const privateKey = crypto.createPrivateKey({
         key: privateKeyData,
@@ -72,5 +77,5 @@ function accessTokenSignature(clientKey,timestamp, privateKeyStr) {
     return signatureBase64;
 }
 
-module.exports = {hmacSHA512,accessTokenSignature};
+module.exports = {hmacSHA512,accessTokenSignature,sha256RsaSignature,generateRandomString};
 
