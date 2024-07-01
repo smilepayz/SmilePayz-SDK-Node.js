@@ -31,7 +31,10 @@ async function payoutRequest(merchantId,merchantCode,domain){
         },
         //below field is optional
         additionalParam: {
+            // Only for India Pay out to Bank
             ifscCode: 'YESB0000097',
+            //Only for Brazil pay out , which method is CPF/CNPJ ,this is tax number for CPF/CNPJ
+            // taxNumber: '1234567890',
         },
         itemDetailList: [
             {

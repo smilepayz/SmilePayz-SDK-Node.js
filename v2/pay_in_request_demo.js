@@ -8,16 +8,21 @@ async function payInRequest(merchantId,merchantCode,baseDomain){
     //get merchantId from merchant platform
     const payInParam = {
         orderNo: mySignature.generateRandomString(16),
-        purpose: 'test',
+        purpose: 'demo for node.js',
         paymentMethod: 'W_DANA',
         money:{
-            currency: 'IDR',
+            currency: Constants.INDONESIA_CURRENCY,
             amount: 100000,
         },
         merchant:{
             merchantId: merchantId
         },
-        area: 10,
+        area: Constants.INDONESIA_CODE,
+        //Conditional Mandatory
+        additionalParam: {
+            //Only for Thailand pay in which method is BANK,this is means your paying bank account no
+            // payerAccountNo: '3456432',
+        },
         //below field is optional
         payer: {
             name: 'payer name',
@@ -40,14 +45,14 @@ async function payInRequest(merchantId,merchantCode,baseDomain){
             city: 'jakarta',
             postalCode: '14450',
             phone: '018922990',
-            countryCode: 'BRAZIL',
+            countryCode: '111111',
         },
         shippingAddress: {
             address: 'Ayu 1 No.B1 Pluit',
             city: 'jakarta',
             postalCode: '14450',
             phone: '018922990',
-            countryCode: 'BRAZIL',
+            countryCode: '111111',
         }
     }
     const minify = JSON.stringify(payInParam);
