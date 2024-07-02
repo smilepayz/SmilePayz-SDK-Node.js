@@ -3,7 +3,7 @@ const mySignature = require('../SignatureUtils')
 const moment = require("moment/moment");
 const {v4: uuidv4} = require('uuid');
 
-async function inquiryOrderStatus(merchantId, merchantCode, baseDomain) {
+async function inquiryOrderStatus(merchantId, merchantSecret, baseDomain) {
     //get merchantId from merchant platform
     const inquiryOrderStatusReq = {
         tradeType: '2',
@@ -17,7 +17,7 @@ async function inquiryOrderStatus(merchantId, merchantCode, baseDomain) {
     const publicKeyStr = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAty25nz4YxlyfmujVSskVhHwqbCn5fVBZzEZbTaLCb/u6nejlCt7e0PHyl/K8biQXlyy1qzmb46BpT98m774VEhih/gS3DdZNniW3Crk4b17ykL3e6V6JWPdYJBfFe/BV/kynoGbqW3o4tF1BlwgTckoaHGDOgr2opX9CMr+PXXJLSZouHawSn4I+ZeB1GPU2g7gmTq4bxWX2WcQStc5Ju9pNGS36kxphvDtrbAcp3Qkx9mjy0/aHUfPzuKn6Exvr1fR4ryCijiNodJGX0ATqlg+P6H8LvTzaEUcxoM30aRdxoZymt20VUqQlLgbR36LUHxcW42g5NLNyuQYUBOx8cwIDAQAB";
 
     const timestamp = moment().format('YYYY-MM-DDTHH:mm:ssZ');
-    const signData = timestamp + '|' + merchantCode + '|' + minify;
+    const signData = timestamp + '|' + merchantSecret + '|' + minify;
     const signature = mySignature.sha256RsaSignature(signData, privateKeyStr)
 
     //options  you have changge hostname, timestamp,
@@ -53,12 +53,12 @@ async function inquiryOrderStatus(merchantId, merchantCode, baseDomain) {
 }
 
 
-const sandboxMerchanteCode = "6a58a603e5043290f4097ee4a7745661b3656932d4eebc3106b5dddc3af6e053";
-const merchanteCode = "95b57c46b8c2e068982be23fb669a80612cad68e6ce6ba4f5af9ec20d23bb274";
+const merchant_secret_sandbox = "6a58a603e5043290f4097ee4a7745661b3656932d4eebc3106b5dddc3af6e053";
+const merchant_secret = "95b57c46b8c2e068982be23fb669a80612cad68e6ce6ba4f5af9ec20d23bb274";
 const sandboxMerchanteId = "sandbox-20019";
 const merchanteId = "20019";
 const sandboxBaseDomain = "sandbox-gateway-test.smilepayz.com";
 const baseDomain = "gateway-test.smilepayz.com";
-inquiryOrderStatus(merchanteId, merchanteCode, baseDomain);
+inquiryOrderStatus(merchanteId, merchant_secret, baseDomain);
 
 //********** end post ***************
