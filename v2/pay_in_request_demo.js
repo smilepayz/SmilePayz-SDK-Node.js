@@ -6,13 +6,14 @@ const { v4: uuidv4 } = require('uuid');
 const myContants = require('./ContantsV2')
 
 async function payInRequest(merchantId,merchantSecret,baseDomain){
+    const orderNo = myContants.MERCHANT_ID + mySignature.generateRandomString(16);
     //get merchantId from merchant platform
     const payInParam = {
-        orderNo: myContants.MERCHANT_ID + mySignature.generateRandomString(16),
+        orderNo: orderNo.substring(0,32),
         purpose: 'demo for node.js',
         paymentMethod: 'W_DANA',
         money:{
-            currency: myContants.INDIA_CURRENCY,
+            currency: myContants.INDONESIA_CURRENCY,
             amount: 100000,
         },
         merchant:{
@@ -57,6 +58,7 @@ async function payInRequest(merchantId,merchantSecret,baseDomain){
         }
     }
     const minify = JSON.stringify(payInParam);
+    console.log(`minify String: ${minify}`);
 
     const timestamp = moment().format('YYYY-MM-DDTHH:mm:ssZ');
     const signData = timestamp + '|' +  merchantSecret + '|' + minify;

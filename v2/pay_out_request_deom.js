@@ -8,20 +8,22 @@ const myContants = require('./ContantsV2')
 
 
 async function payoutRequest(merchantId,merchantSecret,domain){
+    const orderNo = myContants.MERCHANT_ID + mySignature.generateRandomString(16);
+
     //get merchantId from merchant platform
     const payInParam = {
-        orderNo: mySignature.generateRandomString(16),
+        orderNo: orderNo.substring(0,32),
         purpose: 'test',
         cashAccount: '17385238451',
         paymentMethod: 'YES',
         money:{
-            currency: 'INR',
+            currency: myContants.INDIA_CURRENCY,
             amount: 200,
         },
         merchant:{
             merchantId: merchantId,
         },
-        area: 12,
+        area: myContants.INDIA_CODE,
         payer: {
             name: 'payer name',
             phone: '12345678'
