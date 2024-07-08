@@ -7,7 +7,6 @@ const myContants = require('./ContantsV2')
 async function inquiryBalance(merchantId, merchantSecret, baseDomain) {
     //get merchantId from merchant platform
     const inquiryBalanceReq = {
-        partnerReferenceNo: mySignature.generateRandomString(16),
         accountNo: '21220030202403071031',
         balanceTypes: ["BALANCE"]
     }
