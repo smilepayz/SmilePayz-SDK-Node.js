@@ -98,6 +98,6 @@ async function payInRequest(merchantId,merchantSecret,baseDomain){
 payInRequest(myContants.MERCHANT_ID,myContants.MERCHANT_SECRET,myContants.BASE_URL);
 
 //sandbox
-// payInRequest(myContants.MERCHANT_ID_SANDBOX,myContants.MERCHANT_SECRET_SANDBOX,myContants.BASE_URL_SANDBOX);
+payInRequest(myContants.MERCHANT_ID_SANDBOX,myContants.MERCHANT_SECRET_SANDBOX,myContants.BASE_URL_SANDBOX);
 
 //********** end post ***************
