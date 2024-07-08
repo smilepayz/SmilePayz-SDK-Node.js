@@ -57,8 +57,8 @@ const merchantSecretSandbox = "6a58a603e5043290f4097ee4a7745661b3656932d4eebc310
 const merchantSecret = "95b57c46b8c2e068982be23fb669a80612cad68e6ce6ba4f5af9ec20d23bb274";
 const sandboxMerchanteId = "sandbox-20019";
 const merchanteId = "20019";
-const sandboxBaseDomain = "sandbox-gateway-test.smilepayz.com";
-const baseDomain = "gateway-test.smilepayz.com";
+const sandboxBaseDomain = "sandbox-gateway.smilepayz.com";
+const baseDomain = "gateway.smilepayz.com";
 inquiryBalance(sandboxMerchanteId, merchantSecretSandbox, sandboxBaseDomain);
 
 //********** end post ***************
