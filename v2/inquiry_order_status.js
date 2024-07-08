@@ -7,9 +7,9 @@ const myContants = require('./ContantsV2')
 async function inquiryOrderStatus(merchantId, merchantSecret, baseDomain) {
     //get merchantId from merchant platform
     const inquiryOrderStatusReq = {
-        tradeType: '2',
+        tradeType: myContants.TRADE_TYPE_PAY_IN,
         tradeNo: '112200182402261848252600',
-        orderNo: 'D_1708948105016'
+        orderNo: ''
     }
     const minify = mySignature.minify(inquiryOrderStatusReq);
 
@@ -50,12 +50,11 @@ async function inquiryOrderStatus(merchantId, merchantSecret, baseDomain) {
 }
 
 
-const merchant_secret_sandbox = "6a58a603e5043290f4097ee4a7745661b3656932d4eebc3106b5dddc3af6e053";
-const merchant_secret = "95b57c46b8c2e068982be23fb669a80612cad68e6ce6ba4f5af9ec20d23bb274";
-const sandboxMerchanteId = "sandbox-20019";
-const merchanteId = "20019";
-const sandboxBaseDomain = "sandbox-gateway-test.smilepayz.com";
-const baseDomain = "gateway-test.smilepayz.com";
+//production
 inquiryOrderStatus(myContants.MERCHANT_ID, myContants.MERCHANT_SECRET, myContants.BASE_URL);
+
+
+//sandbox
+inquiryOrderStatus(myContants.MERCHANT_ID_SANDBOX, myContants.MERCHANT_SECRET_SANDBOX, myContants.BASE_URL_SANDBOX);
 
 //********** end post ***************

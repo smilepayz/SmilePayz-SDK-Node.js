@@ -9,7 +9,7 @@ async function inquiryBalance(merchantId, merchantSecret, baseDomain) {
     const inquiryBalanceReq = {
         partnerReferenceNo: mySignature.generateRandomString(16),
         accountNo: '21220030202403071031',
-        balanceTypes: ["balance"]
+        balanceTypes: ["BALANCE"]
     }
     const minify = mySignature.minify(inquiryBalanceReq);
 
@@ -48,6 +48,11 @@ async function inquiryBalance(merchantId, merchantSecret, baseDomain) {
     req.write(minify);
     req.end();
 }
+//sandbox
 inquiryBalance(myContants.MERCHANT_ID_SANDBOX, myContants.MERCHANT_SECRET_SANDBOX, myContants.BASE_URL_SANDBOX);
+
+
+// production
+inquiryBalance(myContants.MERCHANT_ID, myContants.MERCHANT_SECRET, myContants.BASE_URL);
 
 //********** end post ***************

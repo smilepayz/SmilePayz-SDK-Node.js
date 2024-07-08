@@ -8,7 +8,7 @@ const myContants = require('./ContantsV2')
 
 
 async function payoutRequest(merchantId,merchantSecret,domain){
-    const orderNo = myContants.MERCHANT_ID + mySignature.generateRandomString(16);
+    const orderNo = merchantId.replace("sandbox-","S") + mySignature.generateRandomString(16);
 
     //get merchantId from merchant platform
     const payInParam = {
@@ -100,7 +100,10 @@ async function payoutRequest(merchantId,merchantSecret,domain){
     req.write(minify);
     req.end();
 }
-
+//production
 payoutRequest(myContants.MERCHANT_ID,myContants.MERCHANT_SECRET,myContants.BASE_URL);
+
+//sandbox
+payoutRequest(myContants.MERCHANT_ID_SANDBOX,myContants.MERCHANT_SECRET_SANDBOX,myContants.BASE_URL_SANDBOX);
 
 //********** end post ***************

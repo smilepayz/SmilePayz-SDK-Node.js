@@ -1,4 +1,11 @@
 class ConstantsV2 {
+    static get TRADE_TYPE_PAY_IN() {
+        return 1;
+    }
+
+    static get TRADE_TYPE_PAY_OUT() {
+        return 2;
+    }
 
     static get INDONESIA_CODE() {
         return 10;
@@ -28,11 +35,11 @@ class ConstantsV2 {
     }
 
     static get BASE_URL() {
-        return 'gateway-test.smilepayz.com';
+        return 'gateway.smilepayz.com';
     }
 
     static get BASE_URL_SANDBOX() {
-        return 'sandbox-gateway-test.smilepayz.com';
+        return 'sandbox-gateway.smilepayz.com';
     }
 
     static get MERCHANT_ID() {

@@ -6,7 +6,7 @@ const { v4: uuidv4 } = require('uuid');
 const myContants = require('./ContantsV2')
 
 async function payInRequest(merchantId,merchantSecret,baseDomain){
-    const orderNo = myContants.MERCHANT_ID + mySignature.generateRandomString(16);
+    const orderNo = merchantId.replace("sandbox-","S") + mySignature.generateRandomString(16);
     //get merchantId from merchant platform
     const payInParam = {
         orderNo: orderNo.substring(0,32),
@@ -94,7 +94,10 @@ async function payInRequest(merchantId,merchantSecret,baseDomain){
     req.write(minify);
     req.end();
 }
-
+//production
 payInRequest(myContants.MERCHANT_ID,myContants.MERCHANT_SECRET,myContants.BASE_URL);
+
+//sandbox
+// payInRequest(myContants.MERCHANT_ID_SANDBOX,myContants.MERCHANT_SECRET_SANDBOX,myContants.BASE_URL_SANDBOX);
 
 //********** end post ***************
