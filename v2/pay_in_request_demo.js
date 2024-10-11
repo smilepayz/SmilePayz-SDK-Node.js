@@ -11,19 +11,21 @@ async function payInRequest(merchantId,merchantSecret,baseDomain){
     const payInParam = {
         orderNo: orderNo.substring(0,32),
         purpose: 'demo for node.js',
-        paymentMethod: 'W_DANA',
+        paymentMethod: 'the payment method you need ',
         money:{
+            //fixme currency for indonesia transaction,you need to change if you want to do other regions
             currency: myContants.INDONESIA_CURRENCY,
             amount: 100000,
         },
         merchant:{
             merchantId: merchantId
         },
+        //fixme demo for indonesia transaction,you need to change if you want to do other regions
         area: myContants.INDONESIA_CODE,
         //Conditional Mandatory
         additionalParam: {
-            //Only for Thailand pay in which method is BANK,this is means your paying bank account no
-            // payerAccountNo: '3456432',
+            //fixme only for Thailand pay in,this is means your paying bank account no
+            payerAccountNo: '3456432',
         },
         //below field is optional
         payer: {

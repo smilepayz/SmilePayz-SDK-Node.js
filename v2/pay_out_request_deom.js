@@ -14,16 +14,19 @@ async function payoutRequest(merchantId,merchantSecret,domain){
     const payInParam = {
         orderNo: orderNo.substring(0,32),
         purpose: 'test',
-        cashAccount: '17385238451',
-        paymentMethod: 'YES',
+        //fixme cashAccount  paymentMethod
+        cashAccount: 'the cash account like:bank account number,e-wallet account number',
+        paymentMethod: 'the payment method',
         money:{
-            currency: myContants.INDIA_CURRENCY,
-            amount: 200,
+            //fixme currency for indonesia transaction,you need to change if you want to do other regions
+            currency: myContants.INDONESIA_CURRENCY,
+            amount: 200000,
         },
         merchant:{
             merchantId: merchantId,
         },
-        area: myContants.INDIA_CODE,
+        //fixme currency for indonesia transaction,you need to change if you want to do other regions
+        area: myContants.INDONESIA_CODE,
         payer: {
             name: 'payer name',
             phone: '12345678'
@@ -34,10 +37,10 @@ async function payoutRequest(merchantId,merchantSecret,domain){
         },
         //below field is optional
         additionalParam: {
-            // Only for India Pay out to Bank
+            //fixme  Only for India Pay out to Bank
             ifscCode: 'YESB0000097',
-            //Only for Brazil pay out , which method is CPF/CNPJ ,this is tax number for CPF/CNPJ
-            // taxNumber: '1234567890',
+            //fixme Only for Brazil pay out , which method is CPF/CNPJ ,this is tax number for CPF/CNPJ
+            taxNumber: '1234567890',
         },
         itemDetailList: [
             {
