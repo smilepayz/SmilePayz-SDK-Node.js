@@ -47,7 +47,7 @@ class ConstantsV2 {
     }
 
     static get MERCHANT_ID_SANDBOX() {
-        return 'sandbox-20019';
+        return 'merchant id in sandbox';
     }
 
     static get MERCHANT_SECRET() {
@@ -58,9 +58,12 @@ class ConstantsV2 {
         return 'merchant secret in sandbox ';
     }
 
+    
+
     static get PRIVATE_KEY() {
         return 'merchant private key ';
     }
+
 
     static get PUBLIC_KEY() {
         return 'platform public key';
