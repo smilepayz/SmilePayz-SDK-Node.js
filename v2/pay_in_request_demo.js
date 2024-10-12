@@ -25,7 +25,7 @@ async function payInRequest(merchantId,merchantSecret,baseDomain){
         //Conditional Mandatory
         additionalParam: {
             //fixme only for Thailand pay in,this is means your paying bank account no
-            payerAccountNo: '3456432',
+            payerAccountNo: '123456789',
         },
         //below field is optional
         payer: {
@@ -45,17 +45,17 @@ async function payInRequest(merchantId,merchantSecret,baseDomain){
             }
         ],
         billingAddress: {
-            address: 'Ayu 1 No.B1 Pluit',
+            address: 'No.B1 Pluit',
             city: 'jakarta',
             postalCode: '14450',
-            phone: '018922990',
+            phone: '098754321',
             countryCode: '111111',
         },
         shippingAddress: {
-            address: 'Ayu 1 No.B1 Pluit',
+            address: 'No.B1 Pluit',
             city: 'jakarta',
             postalCode: '14450',
-            phone: '018922990',
+            phone: '098754321',
             countryCode: '111111',
         }
     }

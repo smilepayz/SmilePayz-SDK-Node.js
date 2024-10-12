@@ -19,6 +19,9 @@ class ConstantsV2 {
     static get BRAZIL_CODE() {
         return 13;
     }
+    static get MEXICO_CODE() {
+        return 14;
+    }
 
 
     static get INDONESIA_CURRENCY() {
@@ -33,7 +36,9 @@ class ConstantsV2 {
     static get BRAZIL_CURRENCY() {
         return 'BRL';
     }
-
+    static get MEXICO_CURRENCY() {
+        return 'MXN';
+    }
     static get BASE_URL() {
         return 'gateway-test.smilepayz.com';
     }

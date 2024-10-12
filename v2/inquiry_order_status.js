@@ -8,8 +8,8 @@ async function inquiryOrderStatus(merchantId, merchantSecret, baseDomain) {
     //get merchantId from merchant platform
     const inquiryOrderStatusReq = {
         tradeType: myContants.TRADE_TYPE_PAY_IN,
-        tradeNo: '112200182402261848252600',
-        orderNo: ''
+        tradeNo: 'platform trade no ',
+        orderNo: 'merchant order no'
     }
     const minify = mySignature.minify(inquiryOrderStatusReq);
 

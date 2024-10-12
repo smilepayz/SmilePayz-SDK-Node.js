@@ -7,7 +7,7 @@ const myContants = require('./ContantsV2')
 async function inquiryBalance(merchantId, merchantSecret, baseDomain) {
     //get merchantId from merchant platform
     const inquiryBalanceReq = {
-        accountNo: '21220030202403071031',
+        accountNo: 'your account no',
         balanceTypes: ["BALANCE"]
     }
     const minify = mySignature.minify(inquiryBalanceReq);
